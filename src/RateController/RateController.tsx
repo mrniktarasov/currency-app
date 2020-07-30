@@ -1,22 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './RateController.module.css';
+import {RateControllerProps} from "../react-app-env";
 
 
-export interface Props {
-    value: number | undefined,
-    setValue: React.Dispatch<React.SetStateAction<number | undefined>>
-    order: number,
-    rates: Map<string, number>,
-}
-
-
-export default function RateController(props: Props) {
+export default function RateController(props: RateControllerProps) {
 
     function toLocalRate(localValue: number | null, localRate: string): number | undefined {
         if(rates && localValue) {
-            console.log(rates.get(localRate));
             // @ts-ignore
-            return localValue * rates.get(localRate);
+            let result = Number((localValue * rates.get(localRate)).toFixed(2));
+            return result;
         }
     }
 
@@ -34,17 +27,13 @@ export default function RateController(props: Props) {
 
 
     let [rate, setRate] = useState<string>('USD');
-    const {order, value, setValue, rates} = props;
+    const {value, setValue, rates} = props;
     let listOptions: JSX.Element[] = [];
     if(rates) {
         for(let key of rates.keys()) {
             listOptions.push(<option key={key}>{key}</option>)
         }
-        console.log(listOptions);
     }
-
-    let inputValue: number | null = value ? value : null;
-
     return (
         <div className={styles.main}>
             <input
@@ -52,7 +41,7 @@ export default function RateController(props: Props) {
                 placeholder='Value'
                 className={styles.valueRate}
                 onChange={handleInputChange}
-                value={toLocalRate(inputValue, rate)}
+                value={toLocalRate(value, rate)}
             />
             <select
                 className={styles.valueRate}

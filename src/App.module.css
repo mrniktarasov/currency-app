@@ -1,12 +1,25 @@
+.intro {
+  margin-top: 50px;
+  font-size: 20px;
+  text-align:  center;
+}
+
 .main {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .rateWrapper {
-  margin-top: 30vh;
+  margin-top: 4vh;
+}
+
+.controlWrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
 }

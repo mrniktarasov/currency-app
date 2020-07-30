@@ -1,36 +1,49 @@
 import React, {useState, useEffect} from 'react';
-import styles from './App.module.css'
+import styles from "./App.module.css";
+import AddButton from "./AddButton/AddButton";
 import RateController from "./RateController/RateController";
+import DeleteButton from "./DeleteButton/DeleteButton";
+import {ratesMap, SetFuncs} from "./react-app-env";
 
-
-type ratesMap = Map<string, number>
-type SetFuncs = (rates: ratesMap) => void;
 
 function App() {
 
     let [rates, setRates] = useState<ratesMap>(new Map());
-    let [value, setValue] = useState<number>();
+    let [value, setValue] = useState<number | null>(null);
+    let [rateControllerList, setRateControllerList] = useState<Array<Object>>([]);
 
     useEffect(() => {
         getRates(setRates);
     }, []);
-
     return (
         <div className={styles.main}>
-            <div className={styles.rateWrapper}>
-                <RateController
+            <div className={styles.intro}>{'Transfer at different exchange rates'}<br/>
+                {'according to the European Central Bank'}</div>
+            <a href={'https://www.ecb.europa.eu/'}>{'https://www.ecb.europa.eu/'}</a>
+            <div className={styles.controlWrapper}>
+                <AddButton
+                    ratesList={rateControllerList}
                     value= {value}
                     setValue= {setValue}
-                    order={0}
                     rates={rates}
+                    setRatesList={setRateControllerList}
                 />
-                <RateController
-                    value= {value}
-                    setValue= {setValue}
-                    order={1}
-                    rates={rates}
+                <DeleteButton
+                    ratesList={rateControllerList}
+                    setRatesList={setRateControllerList}
                 />
             </div>
+            <ul className={styles.rateWrapper}>
+                {rateControllerList.map((rate, index) =>
+                    <li key={index}>
+                        <RateController
+                            value= {value}
+                            setValue= {setValue}
+                            rates={rates}
+                        />
+                    </li>
+                )}
+            </ul>
         </div>
       );
 }
