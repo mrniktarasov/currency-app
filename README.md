@@ -1,4 +1,4 @@
-#Currency app
+# Currency app
 Расчет валюты на различных курсов валют.
 Курсы валют берутся с сайта Европейского Центрального Банка.
 
@@ -6,13 +6,13 @@
 + Можно добалять до шести валют для одновременного расчета и удалять их;
 + Доступно 32 валюты
 
-##Скриншоты
-###Начальная страница
+## Скриншоты
+### Начальная страница
 ![Макет](https://github.com/mrniktarasov/phoneComponent/blob/master/images/start.jpeg)
-###Демонстрация работы
+### Демонстрация работы
 ![Макет](https://github.com/mrniktarasov/phoneComponent/blob/master/images/finish.jpeg)
 
-##Установка
+## Установка
     git clone https://github.com/mrniktarasov/phoneComponent
     cd phoneComponent
     npm i
