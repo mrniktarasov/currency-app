@@ -8,9 +8,9 @@
 
 ## Скриншоты
 ### Начальная страница
-![Макет](https://github.com/mrniktarasov/phoneComponent/blob/master/images/start.jpeg)
+![Макет](https://github.com/mrniktarasov/currency-app/blob/master/images/start.jpeg)
 ### Демонстрация работы
-![Макет](https://github.com/mrniktarasov/phoneComponent/blob/master/images/finish.jpeg)
+![Макет](https://github.com/mrniktarasov/currency-app/blob/master/images/finish.jpeg)
 
 ## Установка
     git clone https://github.com/mrniktarasov/phoneComponent
